@@ -6,6 +6,8 @@ import path from '@purinton/path';
 
 // Get the absolute path to a .env file in the same directory as this module
 const envFile = path(import.meta, ".env");
+// Optionally, you can use __dirname if available:
+// const envFile = path(__dirname, ".env");
 
 // Print the resolved absolute path
 console.log(envFile);

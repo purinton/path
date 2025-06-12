@@ -12,46 +12,43 @@ npm install @purinton/path
 
 ## Example for module JS (ESM) usage
 
-ESM should pass import.meta as the first argument:
+You can pass either `import.meta` (recommended for ESM) or `__dirname` (if available) as the first argument:
 
 ```js
-// Example for module JS (ESM) usage
-// ESM should pass import.meta as the first argument
 import path from '@purinton/path';
 
-// Get the absolute path to a .env file in the same directory as this module
+// Using import.meta (recommended for ESM)
 const envFile = path(import.meta, ".env");
 
-// Print the resolved absolute path
+// Or, if __dirname is available (e.g. in some ESM environments)
+// const envFile = path(__dirname, ".env");
+
 console.log(envFile);
 ```
 
 ## Example for CommonJS usage
 
-CommonJS should send undefined as the first argument:
+CommonJS should pass `__dirname` as the first argument:
 
 ```js
-// Example for CommonJS usage
-// CommonJS should send undefined as the first argument
 const path = require('@purinton/path');
 
 // Get the absolute path to a .env file in the same directory as this file
-const envFile = path(undefined, '.env');
+const envFile = path(__dirname, '.env');
 
-// Print the resolved absolute path
 console.log(envFile);
 ```
 
 ## API
 
-### getCurrentFilename(meta?: ImportMeta): string
+### getCurrentFilename(metaOrDir?: ImportMeta | string): string
 
-Returns the absolute path to the current file; throws if unavailable.
+Returns the absolute path to the current file or directory. Pass `import.meta` (ESM) or a string (e.g. `__dirname`). Throws if unavailable.
 
-### getCurrentDirname(meta?: ImportMeta, dirnameFn?: (path: string) => string): string
+### getCurrentDirname(metaOrDir?: ImportMeta | string, dirnameFn?: (path: string) => string): string
 
-Returns the absolute path to the current directory; throws if unavailable.
+Returns the absolute path to the current directory. Pass `import.meta` (ESM) or a string (e.g. `__dirname`). Throws if unavailable.
 
-### default path(meta: ImportMeta, ...segments: string[]): string
+### default path(metaOrDir: ImportMeta | string, ...segments: string[]): string
 
-Joins the current dirname with provided segments to form an absolute path.
+Joins the current dirname (from `import.meta` or a string) with provided segments to form an absolute path.

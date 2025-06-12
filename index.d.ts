@@ -1,28 +1,28 @@
 /**
- * Returns the current filename in both ESM and Jest environments.
- * @param meta Optional ImportMeta object (in ESM).
- * @returns Absolute path to the current file.
+ * Returns the current filename from import.meta, a string (dirname), or __filename.
+ * @param metaOrDir import.meta (ESM), a string (dirname, e.g. __dirname), or undefined
+ * @returns Absolute path to the current file or directory.
  */
-export function getCurrentFilename(meta?: ImportMeta): string;
+export function getCurrentFilename(metaOrDir?: ImportMeta | string): string;
 
 /**
- * Returns the current dirname in both ESM and Jest environments.
- * @param meta Optional ImportMeta object (in ESM).
+ * Returns the current dirname from import.meta, a string (dirname), or __dirname.
+ * @param metaOrDir import.meta (ESM), a string (dirname, e.g. __dirname), or undefined
  * @param dirnameFn Optional custom dirname function.
  * @returns Absolute path to the current directory.
  */
 export function getCurrentDirname(
-  meta?: ImportMeta,
+  metaOrDir?: ImportMeta | string,
   dirnameFn?: (path: string) => string
 ): string;
 
 /**
  * Joins the current dirname with provided segments to form an absolute path.
- * @param meta ImportMeta object (in ESM) or undefined (in CJS).
+ * @param metaOrDir import.meta (ESM), a string (dirname, e.g. __dirname), or undefined
  * @param segments Path segments to join.
  * @returns Absolute path string.
  */
 export default function path(
-  meta: ImportMeta,
+  metaOrDir: ImportMeta | string,
   ...segments: string[]
 ): string;

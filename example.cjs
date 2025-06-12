@@ -5,7 +5,7 @@
 const path = require('@purinton/path');
 
 // Get the absolute path to a .env file in the same directory as this file
-const envFile = path(undefined, '.env');
+const envFile = path(__dirname, '.env');
 
 // Print the resolved absolute path
 console.log(envFile);
