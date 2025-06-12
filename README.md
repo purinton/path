@@ -10,19 +10,36 @@ An ESM/Jest/Node friendly path utility.
 npm install @purinton/path
 ```
 
-## Usage (ESM)
+## Example for module JS (ESM) usage
+
+ESM should pass import.meta as the first argument:
 
 ```js
-import path, { getCurrentDirname } from '@purinton/path';
-const currentDir = getCurrentDirname(import.meta);
-console.log(path(import.meta, '..', 'file.txt'));
+// Example for module JS (ESM) usage
+// ESM should pass import.meta as the first argument
+import path from '@purinton/path';
+
+// Get the absolute path to a .env file in the same directory as this module
+const envFile = path(import.meta, ".env");
+
+// Print the resolved absolute path
+console.log(envFile);
 ```
 
-## Usage (CJS)
+## Example for CommonJS usage
+
+CommonJS should send undefined as the first argument:
 
 ```js
+// Example for CommonJS usage
+// CommonJS should send undefined as the first argument
 const path = require('@purinton/path');
-console.log(path(undefined, '..', 'file.txt'));
+
+// Get the absolute path to a .env file in the same directory as this file
+const envFile = path(undefined, '.env');
+
+// Print the resolved absolute path
+console.log(envFile);
 ```
 
 ## API
