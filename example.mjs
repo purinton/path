@@ -1,13 +1,8 @@
-// Example for module JS (ESM) usage
-// ESM should pass import.meta as the first argument
-
+// Example for ESM (module JS) usage
 // Import the path utility from the installed package
 import path from '@purinton/path';
+// or import { path } from '@purinton/path'; // identical
 
-// Get the absolute path to a .env file in the same directory as this module
+// for ESM, we need to pass import.meta
 const envFile = path(import.meta, ".env");
-// Optionally, you can use __dirname if available:
-// const envFile = path(__dirname, ".env");
-
-// Print the resolved absolute path
 console.log(envFile);

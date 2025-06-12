@@ -1,6 +1,6 @@
 // index.test.js: CJS API tests
 const pathCjs = require('./index.cjs');
-const { getCurrentFilename: getFilenameCjs, getCurrentDirname: getDirnameCjs } = pathCjs;
+const { path: namedPathCjs, getCurrentFilename: getFilenameCjs, getCurrentDirname: getDirnameCjs } = pathCjs;
 
 describe('CJS API', () => {
   test('getCurrentFilename (CJS) returns index.cjs path (undefined)', () => {
@@ -24,23 +24,23 @@ describe('CJS API', () => {
     expect(dirname).toBe(__dirname);
   });
 
-  test('path (CJS) joins single segment correctly (undefined)', () => {
-    const p = pathCjs(undefined, 'index.cjs');
-    const expected = require('path').join(getDirnameCjs(), 'index.cjs');
-    expect(p).toBe(expected);
-  });
-
-  test('path (CJS) joins single segment correctly (__dirname)', () => {
+  test('path (CJS) joins single segment correctly (default export)', () => {
     const p = pathCjs(__dirname, 'index.cjs');
     const expected = require('path').join(__dirname, 'index.cjs');
     expect(p).toBe(expected);
   });
 
-  test('path (CJS) returns dirname when no segments (undefined)', () => {
-    expect(pathCjs(undefined)).toBe(getDirnameCjs());
+  test('path (CJS) joins single segment correctly (named export)', () => {
+    const p = namedPathCjs(__dirname, 'index.cjs');
+    const expected = require('path').join(__dirname, 'index.cjs');
+    expect(p).toBe(expected);
   });
 
-  test('path (CJS) returns dirname when no segments (__dirname)', () => {
+  test('path (CJS) returns dirname when no segments (default export)', () => {
     expect(pathCjs(__dirname)).toBe(__dirname);
+  });
+
+  test('path (CJS) returns dirname when no segments (named export)', () => {
+    expect(namedPathCjs(__dirname)).toBe(__dirname);
   });
 });

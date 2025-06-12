@@ -36,30 +36,27 @@ npm install @purinton/path
 
 ### ESM Example
 
-You can pass either `import.meta` (recommended for ESM) or `__dirname` (if available) as the first argument:
-
 ```js
+// Example for ESM (module JS) usage
+// Import the path utility from the installed package
 import path from '@purinton/path';
+// or import { path } from '@purinton/path'; // identical
 
-// Using import.meta (recommended for ESM)
+// for ESM, we need to pass import.meta
 const envFile = path(import.meta, ".env");
-
-// Or, if __dirname is available (e.g. in some ESM environments)
-// const envFile = path(__dirname, ".env");
-
 console.log(envFile);
 ```
 
 ### CommonJS Example
 
-CommonJS should pass `__dirname` as the first argument:
-
 ```js
+// Example for CommonJS usage
+// Import the path utility from the installed package
 const path = require('@purinton/path');
+// or const { path } = require('@purinton/path'); // identical
 
-// Get the absolute path to a .env file in the same directory as this file
+// for CommonJS, we need to pass __dirname
 const envFile = path(__dirname, '.env');
-
 console.log(envFile);
 ```
 
@@ -84,7 +81,8 @@ Type definitions are included:
 ```ts
 export function getCurrentFilename(metaOrDir?: ImportMeta | string): string;
 export function getCurrentDirname(metaOrDir?: ImportMeta | string, dirnameFn?: (path: string) => string): string;
-export default function path(metaOrDir: ImportMeta | string, ...segments: string[]): string;
+export const path: (metaOrDir: ImportMeta | string, ...segments: string[]) => string;
+export default path;
 ```
 
 ## License

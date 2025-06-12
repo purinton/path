@@ -22,7 +22,9 @@ export function getCurrentDirname(
  * @param segments Path segments to join.
  * @returns Absolute path string.
  */
-export default function path(
+export const path: (
   metaOrDir: ImportMeta | string,
   ...segments: string[]
-): string;
+) => string;
+
+export default path;

@@ -1,11 +1,8 @@
 // Example for CommonJS usage
-// CommonJS should send undefined as the first argument
-
 // Import the path utility from the installed package
 const path = require('@purinton/path');
+// or const { path } = require('@purinton/path'); // identical
 
-// Get the absolute path to a .env file in the same directory as this file
+// for CommonJS, we need to pass __dirname
 const envFile = path(__dirname, '.env');
-
-// Print the resolved absolute path
 console.log(envFile);

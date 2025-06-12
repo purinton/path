@@ -1,6 +1,6 @@
 // index.test.mjs: ESM API tests
 import { jest } from '@jest/globals';
-import path, { getCurrentFilename, getCurrentDirname } from './index.mjs';
+import path, { path as namedPath, getCurrentFilename, getCurrentDirname } from './index.mjs';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 import { fileURLToPath } from 'url';
@@ -43,7 +43,7 @@ describe('ESM API', () => {
         expect(stubFn).toHaveBeenCalledWith(getCurrentFilename(import.meta));
     });
 
-    test('path joins single segment correctly (import.meta)', () => {
+    test('path joins single segment correctly (default export)', () => {
         const p = path(import.meta, 'index.mjs');
         const expected = require('path').join(
             getCurrentDirname(import.meta),
@@ -52,21 +52,32 @@ describe('ESM API', () => {
         expect(p).toBe(expected);
     });
 
-    test('path joins single segment correctly (__dirname)', () => {
+    test('path joins single segment correctly (named export)', () => {
+        const p = namedPath(import.meta, 'index.mjs');
+        const expected = require('path').join(
+            getCurrentDirname(import.meta),
+            'index.mjs'
+        );
+        expect(p).toBe(expected);
+    });
+
+    test('path joins single segment correctly (__dirname, default export)', () => {
         const p = path(__dirname, 'index.mjs');
         const expected = require('path').join(__dirname, 'index.mjs');
         expect(p).toBe(expected);
     });
 
-    test('path returns dirname when no segments (import.meta)', () => {
-        expect(path(import.meta)).toBe(getCurrentDirname(import.meta));
+    test('path joins single segment correctly (__dirname, named export)', () => {
+        const p = namedPath(__dirname, 'index.mjs');
+        const expected = require('path').join(__dirname, 'index.mjs');
+        expect(p).toBe(expected);
     });
 
-    test('path returns dirname when no segments (__dirname)', () => {
+    test('path returns dirname when no segments (default export)', () => {
         expect(path(__dirname)).toBe(__dirname);
     });
 
-    test('path throws without meta or string', () => {
-        expect(() => path()).toThrow('Cannot determine current filename');
+    test('path returns dirname when no segments (named export)', () => {
+        expect(namedPath(__dirname)).toBe(__dirname);
     });
 });

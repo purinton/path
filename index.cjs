@@ -36,15 +36,16 @@ function getCurrentDirname(metaOrDir, dirnameFn = pathDirname) {
  * @param {...string} segments - Additional path segments to join
  * @returns {string} The absolute path
  */
-function pathFn(metaOrDir, ...segments) {
+const path = (metaOrDir, ...segments) => {
   const dir = getCurrentDirname(metaOrDir);
   if (!dir) {
     throw new Error('Cannot resolve path: current directory is empty.');
   }
   return pathJoin(dir, ...segments);
-}
+};
 
-module.exports = pathFn;
-module.exports.default = pathFn;
+module.exports = path;
+module.exports.default = path;
+module.exports.path = path;
 module.exports.getCurrentFilename = getCurrentFilename;
 module.exports.getCurrentDirname = getCurrentDirname;

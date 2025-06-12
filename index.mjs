@@ -36,10 +36,13 @@ export const getCurrentDirname = (metaOrDir, dirnameFn = pathDirname) => {
  * @param {...string} segments - Additional path segments to join
  * @returns {string} The absolute path
  */
-export default function path(metaOrDir, ...segments) {
+const path = (metaOrDir, ...segments) => {
     const dir = getCurrentDirname(metaOrDir);
     if (!dir) {
         throw new Error('Cannot resolve path: current directory is empty.');
     }
     return pathJoin(dir, ...segments);
-}
+};
+
+export default path;
+export { path };
