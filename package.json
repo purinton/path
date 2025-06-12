@@ -10,6 +10,8 @@
         "index.mjs",
         "index.cjs",
         "index.d.ts",
+        "example.cjs",
+        "example.mjs",
         "README.md",
         "LICENSE"
     ],
