@@ -1,6 +1,6 @@
 # path
 
-[![npm version](https://img.shields.io/npm/v/@purinton/path.svg)](https://www.npmjs.com/package/@purinton/path) [![license](https://img.shields.io/npm/l/@purinton/path.svg)](LICENSE) [![build status](https://github.com/purinton/path/actions/workflows/nodejs.yml/badge.svg)](https://github.com/purinton/path/actions)
+[![npm version](https://img.shields.io/npm/v/@purinton/path.svg)](https://www.npmjs.com/package/@purinton/path) [![license](https://img.shields.io/github/license/purinton/path.svg)](LICENSE) [![build status](https://github.com/purinton/path/actions/workflows/nodejs.yml/badge.svg)](https://github.com/purinton/path/actions)
 
 An ESM/Jest/Node friendly path utility.
 
