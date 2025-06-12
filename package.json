@@ -1,0 +1,44 @@
+{
+  "name": "@purinton/path",
+  "version": "1.0.0",
+  "description": "An ESM/Jest friendly path utility.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "npx --node-options=\"--experimental-vm-modules --no-warnings\" jest --detectOpenHandles --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purinton/path.git"
+  },
+  "keywords": [
+    "path",
+    "paths",
+    "esm",
+    "jest",
+    "utilities",
+    "utils",
+    "nodejs",
+    "module",
+    "resolver",
+    "filepath",
+    "import",
+    "testing",
+    "compatibility"
+  ],
+  "author": "Russell Purinton <russell@purinton.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/purinton/path/issues"
+  },
+  "homepage": "https://github.com/purinton/path#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/?(*.)+(spec|test).[jt]s?(x)",
+      "**/?(*.)+(spec|test).mjs"
+    ]
+  }
+}
