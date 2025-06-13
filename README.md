@@ -1,4 +1,6 @@
-# @purinton/path [![Purinton Dev](https://purinton.us/logos/purinton_96.png)](https://discord.gg/QSBxQnX7PF)
+# [![Purinton Dev](https://purinton.us/logos/purinton_96.png)](https://discord.gg/QSBxQnX7PF)
+
+## @purinton/path
 
 [![npm version](https://img.shields.io/npm/v/@purinton/path.svg)](https://www.npmjs.com/package/@purinton/path)
 [![license](https://img.shields.io/github/license/purinton/path.svg)](LICENSE)
