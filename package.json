@@ -1,7 +1,7 @@
 {
     "name": "@purinton/path",
     "type": "module",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "An ESM/Jest friendly path utility.",
     "main": "index.cjs",
     "module": "index.mjs",
