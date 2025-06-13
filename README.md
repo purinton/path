@@ -89,7 +89,7 @@ export default path;
 
 For help, questions, or to chat with the author and community, visit:
 
-[![Discord](https://dev.purinton.us/assets/discord_96.png)](https://discord.gg/QSBxQnX7PF)[![Purinton Dev](https://dev.purinton.us/assets/purinton_96.png)](https://discord.gg/QSBxQnX7PF)**[Purinton Dev Server on Discord](https://discord.gg/QSBxQnX7PF)**
+[![Discord](http://purinton.us/logos/discord_96.png)](https://discord.gg/QSBxQnX7PF)[![Purinton Dev](http://purinton.us/logos/purinton_96.png)](https://discord.gg/QSBxQnX7PF)**[Purinton Dev on Discord](https://discord.gg/QSBxQnX7PF)**
 
 ## License
 
