@@ -87,13 +87,9 @@ export default path;
 
 ## Support
 
-For help, questions, or to chat with the author and community, visit <!-- Discord Server Invite -->
-<p align="center">
-  <a href="https://discord.gg/your-server-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" width="32" height="32" style="vertical-align:middle; margin-right:8px; display:inline-block;"/>
-    <span style="font-size:1.2em; font-weight:bold; vertical-align:middle; color:#5865F2;">Join our Discord server</span>
-  </a>
-</p>
+For help, questions, or to chat with the author and community, visit:
+
+[![Discord](https://dev.purinton.us/assets/discord_96.png)](https://discord.gg/QSBxQnX7PF)[![Purinton Dev](https://dev.purinton.us/assets/purinton_96.png)](https://discord.gg/QSBxQnX7PF)**[Purinton Dev Server on Discord](https://discord.gg/QSBxQnX7PF)**
 
 ## License
 
