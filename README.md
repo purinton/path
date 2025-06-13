@@ -1,10 +1,6 @@
 # [![Purinton Dev](https://purinton.us/logos/brand.png)](https://discord.gg/QSBxQnX7PF)
 
-## @purinton/path
-
-[![npm version](https://img.shields.io/npm/v/@purinton/path.svg)](https://www.npmjs.com/package/@purinton/path)
-[![license](https://img.shields.io/github/license/purinton/path.svg)](LICENSE)
-[![build status](https://github.com/purinton/path/actions/workflows/nodejs.yml/badge.svg)](https://github.com/purinton/path/actions)
+## @purinton/path [![npm version](https://img.shields.io/npm/v/@purinton/path.svg)](https://www.npmjs.com/package/@purinton/path)[![license](https://img.shields.io/github/license/purinton/path.svg)](LICENSE)[![build status](https://github.com/purinton/path/actions/workflows/nodejs.yml/badge.svg)](https://github.com/purinton/path/actions)
 
 > An ESM/Jest/Node-friendly path utility for resolving file and directory paths in both CommonJS and ESM environments.
 
