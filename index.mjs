@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { dirname as pathDirname, join as pathJoin } from 'path';
 
 /**
@@ -42,6 +42,16 @@ const path = (metaOrDir, ...segments) => {
         throw new Error('Cannot resolve path: current directory is empty.');
     }
     return pathJoin(dir, ...segments);
+};
+
+/**
+ * Converts a resolved path to a file URL for dynamic import compatibility.
+ * @param {any} metaOrDir - import.meta, a string (dirname), or undefined
+ * @param {...string} segments - Additional path segments to join
+ * @returns {string} The file URL
+ */
+export const pathUrl = (metaOrDir, ...segments) => {
+    return pathToFileURL(path(metaOrDir, ...segments)).href;
 };
 
 export default path;

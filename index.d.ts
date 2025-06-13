@@ -27,4 +27,12 @@ export const path: (
   ...segments: string[]
 ) => string;
 
+/**
+ * Converts a resolved path to a file URL href string for dynamic import compatibility.
+ * @param metaOrDir import.meta (ESM), a string (dirname, e.g. __dirname), or undefined
+ * @param segments Path segments to join.
+ * @returns File URL href string.
+ */
+export function pathUrl(metaOrDir: ImportMeta | string, ...segments: string[]): string;
+
 export default path;

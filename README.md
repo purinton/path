@@ -13,6 +13,7 @@
 - [Usage](#usage)
   - [ESM Example](#esm-example)
   - [CommonJS Example](#commonjs-example)
+  - [Dynamic Import Example](#dynamic-import-example)
 - [API](#api)
 - [TypeScript](#typescript)
 - [License](#license)
@@ -23,6 +24,7 @@
 - Works seamlessly in Node.js, Jest, and modern ESM environments
 - TypeScript type definitions included
 - Simple, dependency-free, and well-tested
+- **NEW:** `pathUrl` helper for cross-platform dynamic import
 
 ## Installation
 
@@ -35,27 +37,43 @@ npm install @purinton/path
 ### ESM Example
 
 ```js
-// Example for ESM (module JS) usage
-// Import the path utility from the installed package
-import path from '@purinton/path';
-// or import { path } from '@purinton/path'; // identical
+import path, { pathUrl } from '@purinton/path';
 
 // for ESM, we need to pass import.meta
 const envFile = path(import.meta, ".env");
 console.log(envFile);
+
+// Get a file URL href for dynamic import
+const envFileUrl = pathUrl(import.meta, ".env");
+console.log(envFileUrl);
+// import(envFileUrl).then(mod => ...);
 ```
 
 ### CommonJS Example
 
 ```js
-// Example for CommonJS usage
-// Import the path utility from the installed package
-const path = require('@purinton/path');
-// or const { path } = require('@purinton/path'); // identical
+const { path, pathUrl } = require('@purinton/path');
 
 // for CommonJS, we need to pass __dirname
 const envFile = path(__dirname, '.env');
 console.log(envFile);
+
+// Get a file URL href for dynamic import
+const envFileUrl = pathUrl(__dirname, '.env');
+console.log(envFileUrl);
+// import(envFileUrl).then(mod => ...); // if using ESM loader in CJS
+```
+
+### Dynamic Import Example
+
+```js
+// ESM
+import { pathUrl } from '@purinton/path';
+const mod = await import(pathUrl(import.meta, './my-module.mjs'));
+
+// CommonJS (with ESM loader)
+const { pathUrl } = require('@purinton/path');
+const mod = await import(pathUrl(__dirname, './my-module.mjs'));
 ```
 
 ## API
@@ -72,6 +90,10 @@ Returns the absolute path to the current directory. Pass `import.meta` (ESM) or 
 
 Joins the current dirname (from `import.meta` or a string) with provided segments to form an absolute path.
 
+### `pathUrl(metaOrDir: ImportMeta | string, ...segments: string[]): string`
+
+Returns a file URL href string for the resolved path, suitable for use with dynamic `import()` on all platforms.
+
 ## TypeScript
 
 Type definitions are included:
@@ -80,6 +102,7 @@ Type definitions are included:
 export function getCurrentFilename(metaOrDir?: ImportMeta | string): string;
 export function getCurrentDirname(metaOrDir?: ImportMeta | string, dirnameFn?: (path: string) => string): string;
 export const path: (metaOrDir: ImportMeta | string, ...segments: string[]) => string;
+export function pathUrl(metaOrDir: ImportMeta | string, ...segments: string[]): string;
 export default path;
 ```
 

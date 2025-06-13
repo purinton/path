@@ -1,6 +1,6 @@
 // index.test.mjs: ESM API tests
 import { jest } from '@jest/globals';
-import path, { path as namedPath, getCurrentFilename, getCurrentDirname } from './index.mjs';
+import path, { path as namedPath, getCurrentFilename, getCurrentDirname, pathUrl } from './index.mjs';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 import { fileURLToPath } from 'url';
@@ -79,5 +79,21 @@ describe('ESM API', () => {
 
     test('path returns dirname when no segments (named export)', () => {
         expect(namedPath(__dirname)).toBe(__dirname);
+    });
+
+    test('pathUrl returns file URL href for import.meta and segment', () => {
+        const href = pathUrl(import.meta, 'index.mjs');
+        expect(href.startsWith('file:')).toBe(true);
+        expect(href.endsWith('/index.mjs')).toBe(true);
+    });
+    test('pathUrl returns file URL href for __dirname and segment', () => {
+        const href = pathUrl(__dirname, 'index.mjs');
+        expect(href.startsWith('file:')).toBe(true);
+        expect(href.endsWith('/index.mjs')).toBe(true);
+    });
+    test('pathUrl returns file URL href for __dirname only', () => {
+        const href = pathUrl(__dirname);
+        expect(href.startsWith('file:')).toBe(true);
+        expect(href.endsWith(__dirname.replace(/\\/g, '/'))).toBe(true);
     });
 });

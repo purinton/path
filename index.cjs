@@ -1,4 +1,4 @@
-const { fileURLToPath } = require('url');
+const { fileURLToPath, pathToFileURL } = require('url');
 const { dirname: pathDirname, join: pathJoin } = require('path');
 
 /**
@@ -44,8 +44,19 @@ const path = (metaOrDir, ...segments) => {
   return pathJoin(dir, ...segments);
 };
 
+/**
+ * Converts a resolved path to a file URL for dynamic import compatibility.
+ * @param {any} metaOrDir - import.meta, a string (dirname), or undefined
+ * @param {...string} segments - Additional path segments to join
+ * @returns {URL} The file URL
+ */
+const pathUrl = (metaOrDir, ...segments) => {
+  return pathToFileURL(path(metaOrDir, ...segments)).href;
+};
+
 module.exports = path;
 module.exports.default = path;
 module.exports.path = path;
 module.exports.getCurrentFilename = getCurrentFilename;
 module.exports.getCurrentDirname = getCurrentDirname;
+module.exports.pathUrl = pathUrl;
