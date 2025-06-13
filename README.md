@@ -85,10 +85,15 @@ export const path: (metaOrDir: ImportMeta | string, ...segments: string[]) => st
 export default path;
 ```
 
+## Support
+
+For help, questions, or to chat with the author and community, visit [![Discord](https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg#gh-dark-mode-only)](https://discord.gg/QSBxQnX7PF) **[Russell's Dev Server on Discord](https://discord.gg/QSBxQnX7PF)**
+
 ## License
 
-MIT License © 2025 Russell Purinton
+[MIT © 2025 Russell Purinton](LICENSE)
 
----
+## Links
 
-For more details, see the [LICENSE](LICENSE) file or visit the [GitHub repository](https://github.com/purinton/path).
+- [GitHub](https://github.com/purinton/path)
+- [npm](https://www.npmjs.com/package/@purinton/path)
