@@ -101,3 +101,4 @@ For help, questions, or to chat with the author and community, visit:
 
 - [GitHub](https://github.com/purinton/path)
 - [npm](https://www.npmjs.com/package/@purinton/path)
+- [Discord](https://discord.gg/QSBxQnX7PF)
